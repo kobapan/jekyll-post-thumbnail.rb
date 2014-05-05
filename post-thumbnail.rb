@@ -1,8 +1,8 @@
-le Jekyll
+module Jekyll
   module PostThumbnail
     def thumbnail(input, h="100px")
       if /<img(.*?)>|!\[\]\((.*?)\)/ =~ input
-        '<img' + $~[1] + 'height="' + h + '">'
+        '<img' + $~[1] + ' height="' + h + '">'
       end
     end
   end
