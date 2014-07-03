@@ -1,4 +1,4 @@
-# This is a Liquid filter plugin for jekyll , show the first image as an img tag .
+# This is a Liquid filter plugin for jekyll , show the first img tag in a post .
 #
 # Usage
 #
