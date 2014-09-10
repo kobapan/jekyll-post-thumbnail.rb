@@ -1,4 +1,4 @@
-# This is a Liquid filter plugin for jekyll , show the first img tag in a post .
+# This is a Liquid filter plugin for jekyll , show the first image as an img tag .
 #
 # Usage
 #
@@ -15,8 +15,13 @@
 module Jekyll
   module PostThumbnail
     def thumbnail(input, h="100px", w="" )
-      if /<img(.*?)>|!\[\]\((.*?)\)/ =~ input
-        '<img' + $~[1] + ' height="' + h + '" width="' + w + '">'
+      if /<img.+src=['"](.*?)["']|!\[\]\((.*?)\)/ =~ input
+        srcstr = $~[1]
+        if /(.*?)staticflickr(.*?)(_[a-z])?\.jpg/ =~ srcstr
+          '<img src="' + $~[1] + 'staticflickr' + $~[2] + '_m.jpg" height="' + h + '" width="' + w + '">'
+        else
+          '<img src="' + srcstr + '" height="' + h + '" width="' + w + '">'
+        end
       end
     end
   end
