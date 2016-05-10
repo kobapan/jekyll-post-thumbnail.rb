@@ -29,9 +29,9 @@ module Jekyll
       if /<img.+src=['"](.*?)["']|!\[\]\((.*?)\)/ =~ input
        srcstr = $~[1]
        if /(.*?)staticflickr(.*?)(_[a-z])?\.jpg/ =~ srcstr
-         '<img src="' + $~[1] + 'staticflickr' + $~[2] + '_m.jpg" height="' + h + '" width="' + w + '">'
+         '<img src="' + $~[1] + 'staticflickr' + $~[2] + '_m.jpg" height="' + h + '" width="' + w + '" class="thumbnail" >'
        else
-         '<img src="' + srcstr + '" height="' + h + '" width="' + w + '">'
+         '<img src="' + srcstr + '" height="' + h + '" width="' + w + '" class="thumbnail" >'
        end
       end
 
